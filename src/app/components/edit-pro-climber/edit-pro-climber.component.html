@@ -1,6 +1,22 @@
-<div *ngif="climber">
-    <h2>{{ climber?.name }}</h2>
+<div *ngIf="climber">
+    <h2>{{ climber.name }}</h2>
     <div>
-
+        Name:
+        <input [(ngModel)]="climber.name" placeholder="Name"/>
     </div>
+    <div>
+        FirstName:
+        <input [(ngModel)]="climber.firstName" placeholder="FirstName"/>
+    </div>
+    <div>
+        LastName:
+        <input [(ngModel)]="climber.lastName" placeholder="LastName"/>
+    </div>
+    <div>
+        Place:
+        <input [(ngModel)]="climber.place" placeholder="Place"/>
+    </div>
+    <button (click)="updateClimber(climber)" *ngIf="climber.id">Save</button>
+    <button (click)="deleteClimber(climber)" *ngIf="climber.id">Delete</button>
+    <button (click)="createClimber(climber)" *ngIf="!climber.id">Create</button>
 </div>
