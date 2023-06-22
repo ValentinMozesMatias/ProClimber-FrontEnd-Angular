@@ -1,19 +1,24 @@
+<button (click)="initNewClimber()">Create new Climber</button>
+
 <table>
   <thead>
     <tr>
-    <th>Name</th>
-    <th>FirstName</th>
-    <th> LastName</th>
-    <th>Place</th>
-  </tr>
+      <th>Name</th>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>Place</th>
+    </tr>
   </thead>
   <tbody>
     <tr *ngFor="let climber of climbers">
-      <td>{{ climber.name}}</td>
-      <td>{{ climber.firstName}}</td>
-      <td>{{ climber.lastName}}</td>
-      <td>{{ climber.place}}</td>
+      <td>{{ climber.name }}</td>
+      <td>{{ climber.firstName }}</td>
+      <td>{{ climber.lastName }}</td>
+      <td>{{ climber.place }}</td>
+      <td><button (click)="editClimber(climber)">Edit</button></td>
     </tr>
   </tbody>
 </table>
-  
+
+<app-edit-pro-climber [climber]="climberToEdit" (climbersUpdated)="updateClimberList($event)"></app-edit-pro-climber>
+
